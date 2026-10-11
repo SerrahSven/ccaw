@@ -9,7 +9,7 @@
  * beside the old one and takes over once the last page of the old build is closed. There is no skipWaiting on purpose: a page never
  * mixes files of two builds.
  */
-const CACHE = 'ccaw-be20466a';
+const CACHE = 'ccaw-d7f0f76d';
 const SHELL = ['./', './manifest.webmanifest'];
 
 async function precache() {
