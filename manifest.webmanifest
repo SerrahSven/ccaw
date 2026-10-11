@@ -1,0 +1,19 @@
+{
+  "name": "CCAW — Cards and Creatures Around the World",
+  "short_name": "CCAW",
+  "description": "Jeu de cartes à collectionner hors ligne : créatures de mythes du monde entier, dessinées au crayon.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A0807",
+  "theme_color": "#0A0807",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
