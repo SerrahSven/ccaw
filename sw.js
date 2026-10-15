@@ -6,10 +6,11 @@
  *   - everything else of the same origin: stored copy first, filled as it is used.
  *   Other origins, non-GET requests and the trade server (/v1/) are left alone.
  * Every build stamps its own id over the marker of the cache name below (scripts/pwa-postexport.ts), hence a new worker: it installs
- * beside the old one and takes over once the last page of the old build is closed. There is no skipWaiting on purpose: a page never
- * mixes files of two builds.
+ * beside the old one and waits. It takes over once the last page of the old build is closed, or when a page asks it to (message
+ * SKIP_WAITING, sent by the "update now" button, which reloads the page as soon as the worker has taken over). It never skips the
+ * waiting by itself: a page never mixes files of two builds.
  */
-const CACHE = 'ccaw-d9f22a7e';
+const CACHE = 'ccaw-6b72621e';
 const SHELL = ['./', './manifest.webmanifest'];
 
 async function precache() {
@@ -27,6 +28,11 @@ async function precache() {
 
 self.addEventListener('install', (event) => {
   event.waitUntil(precache());
+});
+
+/** The page offers the update and the player took it: this worker takes over now. */
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
