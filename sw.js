@@ -10,7 +10,7 @@
  * SKIP_WAITING, sent by the "update now" button, which reloads the page as soon as the worker has taken over). It never skips the
  * waiting by itself: a page never mixes files of two builds.
  */
-const CACHE = 'ccaw-6b72621e';
+const CACHE = 'ccaw-bc198dd2';
 const SHELL = ['./', './manifest.webmanifest'];
 
 async function precache() {
